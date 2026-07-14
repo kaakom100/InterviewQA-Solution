@@ -1,0 +1,33 @@
+{
+  "name": "interviewqa-solution",
+  "version": "1.0.0",
+  "description": "ใช้ playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js",
+    "test:ui": "cucumber-js -p ui",
+    "test:api": "cucumber-js -p api",
+    "test:headed": "cross-env HEADED=true cucumber-js -p ui",
+    "report": "ts-node utils/report.ts",
+    "test:report": "npm test && npm run report"
+  },
+  "keywords": [
+    "playwright",
+    "cucumber",
+    "typescript",
+    "bdd",
+    "qa-automation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.9.0",
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.1",
+    "cross-env": "^10.1.0",
+    "cucumber-html-reporter": "^7.2.0",
+    "playwright": "^1.61.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

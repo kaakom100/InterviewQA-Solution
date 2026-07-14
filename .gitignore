@@ -141,3 +141,16 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# ---- Test automation output ----
+# ผลรัน Cucumber + HTML report (สร้างใหม่ได้จากการรันเทสต์)
+reports/*
+!reports/.gitkeep
+# screenshot ตอนเทสต์ fail
+screenshots/*
+!screenshots/.gitkeep
+# Playwright artifacts
+playwright-report/
+test-results/
+# ไฟล์ dump ชั่วคราวตอน explore
+page-dump.html
