@@ -4,14 +4,18 @@
   "description": "ใช้ playwright",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js",
-    "posttest": "npm run report",
     "test:ui": "cucumber-js -p ui",
     "posttest:ui": "npm run report",
-    "test:api": "cucumber-js -p api",
-    "posttest:api": "npm run report",
     "test:headed": "cross-env HEADED=true cucumber-js -p ui",
     "posttest:headed": "npm run report",
+    "test:login": "cucumber-js --tags @login",
+    "posttest:login": "npm run report",
+    "test:shop": "cucumber-js --tags @shop",
+    "posttest:shop": "npm run report",
+    "test:checkout": "cucumber-js --tags @checkout",
+    "posttest:checkout": "npm run report",
+    "test:confirmation": "cucumber-js --tags @confirmation",
+    "posttest:confirmation": "npm run report",
     "report": "ts-node utils/report.ts"
   },
   "keywords": [

@@ -26,11 +26,18 @@ npx playwright install
 
 ## การรันเทสต์ (UI - Step 1 ถึง 4)
 
-```bash
-npm run test:ui        # รันเฉพาะ UI test (headless)
-npm run test:headed    # รันแบบเห็นเบราว์เซอร์จริง
-npm test               # รันทุก feature
-```
+| คำสั่ง | ทำอะไร |
+|---|---|
+| `npm run test:ui` | รัน UI test ทั้งหมด (headless — ไม่เห็นเบราว์เซอร์) |
+| `npm run test:headed` | รัน UI test แบบเห็นเบราว์เซอร์จริง |
+| `npm run test:login` | รันเฉพาะ Step 1 - Login (`@login`) |
+| `npm run test:shop` | รันเฉพาะ Step 2 - Product Selection (`@shop`) |
+| `npm run test:checkout` | รันเฉพาะ Step 3 - Checkout (`@checkout`) |
+| `npm run test:confirmation` | รันเฉพาะ Step 4 - Order Confirmation (`@confirmation`) |
+| `npm run report` | สร้าง HTML report จากผลล่าสุด + เปิดเบราว์เซอร์ |
+
+> **auto report:** ทุกคำสั่ง `test:*` มี post hook (`posttest:*`) ที่ npm เรียกเองหลังรันเสร็จ
+> → สร้าง HTML report ให้อัตโนมัติ ไม่ต้องสั่ง `npm run report` แยก
 
 ### HTML report
 
