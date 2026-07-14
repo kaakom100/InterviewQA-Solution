@@ -1,8 +1,8 @@
 @ui @shop
 Feature: Step 2 - Product Selection and Total Cost
-  As a logged-in shopper
-  I want to add products with specific quantities
-  So that the total cost is calculated correctly
+  ทดสอบการเลือกสินค้าและการคำนวณยอดรวม
+  - Positive: เลือก Dior 2 ชิ้น + Gucci 3 ชิ้น ยอดรวมต้องเท่ากับ $419.95
+  - Negative: จำนวนสินค้าผิด ยอดรวมต้องไม่ตรงกับที่คาดหวัง
 
   Background:
     Given I am logged in to the shop

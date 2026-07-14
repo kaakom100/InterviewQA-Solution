@@ -1,8 +1,7 @@
 @ui @confirmation
 Feature: Step 4 - Order Confirmation (Address Format)
-  As a shopper who submitted an order
-  I want the shipping address displayed in the correct format
-  So that I can confirm where my order will be shipped
+  ทดสอบการแสดงที่อยู่ในหน้ายืนยันคำสั่งซื้อ
+  - ตรวจว่าที่อยู่แสดงในรูปแบบ "Street, City - Country"
 
   Background:
     Given I am logged in to the shop

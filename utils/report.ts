@@ -15,12 +15,13 @@ if (!fs.existsSync(jsonFile)) {
 }
 
 reporter.generate({
-  theme: 'bootstrap',
+  theme: 'hierarchy',
   jsonFile,
   output,
+  columnLayout: 1, // จัด feature เป็นคอลัมน์เดียว (เรียง 1→2→3→4 ลงมา อ่านง่าย)
   reportSuiteAsScenarios: true,
   scenarioTimestamp: true,
-  launchReport: false,
+  launchReport: !process.env.CI, // เปิดในเบราว์เซอร์อัตโนมัติ (ยกเว้นตอนรันบน CI)
   metadata: {
     App: 'QA Practice - Ecommerce',
     'Test Environment': 'Production (frontend)',
@@ -30,4 +31,8 @@ reporter.generate({
   },
 });
 
-console.log(`✅ สร้าง HTML report แล้วที่ ${output}`);
+// print path เต็ม + file:// URL ให้คลิกเปิดในเบราว์เซอร์ได้จาก terminal
+const absolute = path.resolve(output);
+console.log('\n✅ HTML report สร้างแล้ว (เปิดในเบราว์เซอร์อัตโนมัติ)');
+console.log(`   Report: ${absolute}`);
+console.log(`   Open:   file:///${absolute.replace(/\\/g, '/')}`);

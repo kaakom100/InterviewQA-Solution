@@ -1,8 +1,8 @@
 @ui @checkout
 Feature: Step 3 - Checkout (Shipping Details)
-  As a shopper with items in the cart
-  I want to submit my shipping details
-  So that my order gets registered
+  ทดสอบการกรอกข้อมูลจัดส่งและส่งคำสั่งซื้อ
+  - Positive: กรอกครบทุกช่องที่บังคับ คำสั่งซื้อถูกบันทึกสำเร็จ
+  - Negative: เว้นช่องที่บังคับ (street) คำสั่งซื้อไม่ผ่าน + ช่องขึ้น required
 
   Background:
     Given I am logged in to the shop

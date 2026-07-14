@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js",
+    "posttest": "npm run report",
     "test:ui": "cucumber-js -p ui",
+    "posttest:ui": "npm run report",
     "test:api": "cucumber-js -p api",
+    "posttest:api": "npm run report",
     "test:headed": "cross-env HEADED=true cucumber-js -p ui",
-    "report": "ts-node utils/report.ts",
-    "test:report": "npm test && npm run report"
+    "posttest:headed": "npm run report",
+    "report": "ts-node utils/report.ts"
   },
   "keywords": [
     "playwright",
