@@ -1,4 +1,4 @@
-name: UI Tests (Playwright + Cucumber)
+name: Tests (Playwright + Cucumber)
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
   workflow_dispatch: # กดรันเองได้จากหน้า GitHub Actions
 
 jobs:
-  ui-tests:
+  tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,8 +27,19 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Run UI tests
-        run: npm run test:ui
+      - name: Start backend API (Docker)
+        run: |
+          docker run -d --rm --name qa-practice-api -p8887:8081 rvancea/qa-practice-api:latest
+          echo "รอ API บูต..."
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:8887/api/v1/employees >/dev/null; then
+              echo "API พร้อมแล้ว"; break
+            fi
+            sleep 2
+          done
+
+      - name: Run all tests (UI + API)
+        run: npx cucumber-js
 
       - name: Generate HTML report
         if: always() # สร้าง report แม้เทสต์ fail

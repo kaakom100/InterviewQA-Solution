@@ -20,6 +20,7 @@
   "include": [
     "resources/**/*.ts",
     "pages/**/*.ts",
+    "api/**/*.ts",
     "testscript/**/*.ts",
     "support/**/*.ts",
     "utils/**/*.ts"
